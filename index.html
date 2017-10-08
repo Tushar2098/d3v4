@@ -7,11 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>D3 Tuts</title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .chart,
+        .exitSelectionDemo,
+        .prepopulateWithElement {
+            background: lightgray;
+            border: 1px solid black;
+            min-width: 100px;
+            min-height: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    <h3>Hello World</h3>
+    <div class="chart"></div>
+    <div class="prepopulateWithElement">
+        <div>Billy</div>
+        <div>Cindy</div>
+    </div>
+    <div class="exitSelectionDemo">
+        <div>Billy</div>
+        <div>Cindy</div>
+        <div>Walter</div>
+    </div>
     <script src="./src/scales.js"></script>
+    <script src="./src/updateSelection.js"></script>
 </body>
 
 </html>
