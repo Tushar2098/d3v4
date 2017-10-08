@@ -23,3 +23,21 @@ console.log(links.nodes());
 let div = d3.select('div'); //selects one anchor element
 divLinks = div.selectAll('a'); //selects all anchor element
 console.log(divLinks.nodes());
+
+/*
+===========================
+    g(Group) element
+===========================
+*/
+let bar = d3
+  .select('.chart')
+  .append('svg')
+  .attr('width', 225)
+  .attr('height', 225)
+  .selectAll('g')
+  .data(scores)
+  .enter()
+  .append('g')
+  // For g element attr x & y does not work, hence we
+  // always need to use transform property
+  .attr('transform', (d, i) => `translate(0,${i * 33})`);
