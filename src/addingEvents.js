@@ -1,4 +1,4 @@
-$('.chart').show();
+$('.events').show();
 let scores = [
   { name: 'Alice', score: 98 },
   { name: 'Billy', score: 87 },
@@ -7,7 +7,7 @@ let scores = [
   { name: 'Emilly', score: 70 }
 ];
 let bar = d3
-  .select('.chart')
+  .select('.events')
   .append('svg')
   .attr('width', 225)
   .attr('height', 225)
@@ -17,8 +17,20 @@ let bar = d3
   .append('g')
   .attr('transform', (d, i) => `translate(0,${i * 33})`);
 
+//Adding hovering effect
 bar
   .append('rect')
+  .on('mouseover', function(d, i, elements) {
+    d3.select(this).style('transform', 'scaleX(2)');
+    d3
+      .selectAll(elements)
+      .filter(':not(:hover)')
+      .style('fill-opacity', 0.5);
+  })
+  .on('mouseout', function(d, i, elements) {
+    d3.select(this).style('transform', 'scaleX(1)');
+    d3.selectAll(elements).style('fill-opacity', 1);
+  })
   .attr('class', 'bar')
   .style('width', d => d.score);
 
